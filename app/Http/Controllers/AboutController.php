@@ -17,7 +17,7 @@ class AboutController extends Controller
      */
     public function index()
     {   
-        $about = Post::where('page',1)->first()->get();
+        $about = Post::where('page',1)->get();
         return view('about.index',compact('about'));
     }
 

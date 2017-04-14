@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('main');
-});
+// 
+
+Route::get('/', 'FrontController@index');
+
 
 Auth::routes();
 
@@ -28,4 +29,5 @@ Route::group(['middleware' => 'auth'], function () {
  	 	'destroy','show'
  	 	]]);
  	 Route::resource('category', 'CategoryController',['except'=>['show']]);
+ 	 Route::resource('product', 'ProductController');
 });

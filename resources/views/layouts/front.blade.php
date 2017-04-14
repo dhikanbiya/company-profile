@@ -20,26 +20,11 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/jquery.fullpage.min.css')}}" rel="stylesheet">
-    <style type="text/css">
-     
-        #slide1{
-          background-image: url({{asset('img/intro-bg.jpg')}});
-          -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-          
-        }
-        #slide2{
-          background-image: url({{asset('img/intro-home.jpg')}});
-          -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-       
-
-    </style>
+    
     @show
+    
+    
+    
    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

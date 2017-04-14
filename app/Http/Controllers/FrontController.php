@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Slide;
+use App\Post;
 use App\Category;
-use Auth;
+use App\Product;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +17,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        $slide = Slide::all();
+        $about = Post::where('page',1)->get();
+        $vision = Post::where('page',2)->get();
         $category = Category::all();
-        return view('category.index',compact('category'))->with('i');
+        $product  = Product::all();
+        return view('main',compact('about','vision','category','product','slide'));
     }
 
     /**
@@ -26,7 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        //
     }
 
     /**
@@ -37,15 +43,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required|max:100',
-            ]);
-        $store = new Category;
-        $store->name = $request->name;
-        $store->user_id = Auth::user()->id;
-
-        $store->save();
-        return redirect()->route('category.index')->with('success','category created succesfully');
+        //
     }
 
     /**
@@ -67,8 +65,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $show = Category::findOrFail($id);
-        return view('category.edit',compact('show'));
+        //
     }
 
     /**
@@ -80,15 +77,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name'=>'required|max:100',
-            ]);
-        $update = Category::findOrFail($id);
-        $update->name = $request->name;
-        $update->user_id = Auth::user()->id;
-        $update->save();
-
-        return redirect()->route('category.index')->with('success','category updated successfully');
+        //
     }
 
     /**
@@ -99,7 +88,6 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        Category::findOrFail($id)->delete();
-        return redirect()->route('category.index')->with('success','delete success');
+        //
     }
 }

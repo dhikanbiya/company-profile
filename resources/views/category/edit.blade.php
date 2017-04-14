@@ -14,7 +14,7 @@
 					<div class="form-group">
 					  <label for="name" class="col-md-3 control-label">Category name</label>
 					  <div class="col-md-9">
-					  	<input class="form-control" id="title" type="text" name="name" placeholder="category name"value={{old('name',$show->name)}}>
+					  	<input class="form-control" id="title" type="text" name="name" placeholder="category name"value="{{old('name',$show->name)}}">
 					  </div>				  
 					</div>					
 				  <div class="form-group">

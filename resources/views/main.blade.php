@@ -1,20 +1,23 @@
 @extends('layouts.front')
 
+
 @section('content')
 <div id="fullpage">      
    <div class="section" id="intro">
        <div id="mycarousel" class="carousel slide" data-ride="carousel">        
                <!-- Wrapper for slides -->
                <div class="carousel-inner" role="listbox">
+               @foreach($slide as $sl)
                  <div class="item">
-                     <img src="img/home-bg.jpg" data-color="lightblue" alt="First Image">
+                     <img src="{{url('slide-img/'.$sl->image)}}" data-color="lightblue" alt="First Image">
                      <div class="carousel-caption">
-                        <h1>DATA KOMUNIKASI <span class="brand-heading">Internusa</span></h1>
-                        <p class="intro-text">Tilde truffaut street art chicharrones, unicorn activated charcoal pinterest celiac kitsch hell of pitchfork tattooed art party gentrify snackwave</p>
+                        <h1>{{$sl->title}}</span></h1>
+                        <p class="intro-text">{{$sl->description}}</p>
                         <a href="#about" class="btn btn-default page-scroll">More</a>
                      </div>
                  </div>
-                 <div class="item">
+                 @endforeach
+                 <!-- <div class="item">
                      <img src="img/home-bg.jpg" data-color="firebrick" alt="Second Image">
                      <div class="carousel-caption">
                          <h1>JOIN <span class="brand-heading">US</span></h1>
@@ -29,7 +32,7 @@
                          <p class="intro-text"> Cornhole cred tattooed, farm-to-table green juice viral art party readymade pinterest</p>
                          <a href="#about" class="btn btn-default page-scroll">More</a>
                      </div>
-                 </div>                                            
+                 </div> -->                                            
                </div>
 
                <!-- Controls -->
@@ -45,6 +48,7 @@
            <!-- end -->
      
    </div>
+   @foreach($about as $ab)
    <div class="section" id="ab">
     <div class="col-md-12">
       <div class="container">
@@ -53,20 +57,16 @@
          <hr>
          <div class="col-md-12">
            <div class="row">
-             <div class="col-md-4">
+             <div class="col-md-4">             
                <h4>Who we are</h4>
-               <p>
-                 Blog af ethical, fashion axe prism master cleanse tote bag fam hell of succulents drinking vinegar vaporware keffiyeh street art flannel. Biodiesel PBR&B organic migas DIY. Green juice tbh portland vexillologist marfa, sartorial readymade direct trade VHS photo booth tote bag air plant tousled craft beer pour-over. Dreamcatcher flannel street art bushwick butcher. Irony godard selfies, retro pickled street art roof party sartorial. Bushwick dreamcatcher XOXO pour-over kinfolk unicorn, bitters scenester hot chicken small batch tofu. Enamel pin activated charcoal lo-fi subway tile, raclette synth glossier four dollar toast meditation four loko umami keffiyeh.
-               </p>
+               <p>{{$ab->section_one}}</p>
              </div>
              <div class="col-md-4">
                <h4>What we do</h4>
-               <p>
-                 Raclette microdosing squid paleo 90's pickled. Gentrify drinking vinegar meh, irony activated charcoal try-hard mlkshk knausgaard small batch put a bird on it succulents art party messenger bag kitsch. Pok pok cold-pressed hell of, sustainable sriracha 3 wolf moon yuccie coloring book etsy hoodie vice. Chillwave bitters freegan polaroid deep v. Offal ugh iPhone shoreditch street art squid, neutra jean shorts vexillologist lumbersexual echo park pitchfork. Listicle kickstarter literally, waistcoat gochujang master cleanse microdosing brooklyn. Pabst disrupt kickstarter, gluten-free banjo poke kinfolk sriracha.
-               </p>
+               <p>{{$ab->section_two}}</p>
              </div>
              <div class="col-md-4">
-             <img src="img/home-bg.jpg" class="img-responsive">
+             <img src="{{url('images/'.$ab->image)}}" class="img-responsive">
              </div>
            </div>
          </div>
@@ -74,6 +74,8 @@
       </div>           
     </div>
    </div>
+   @endforeach
+   @foreach($vision as $vis)
    <div class="section" id="vimis">
      <div class="container">
        <div class="content">
@@ -82,20 +84,17 @@
            <hr>
              <div class="row">
                <div class="col-md-4">
-                 <img src="img/home-bg.jpg" class="img-responsive">
+                 <img src="{{url('images/'.$vis->image)}}" class="img-responsive">
                </div>
                <div class="col-md-8">
                  <div class="row">
                    <div class="col-md-6">
                    <h4>Vision</h4>
-                   <p>
-                     Gentrify drinking vinegar meh, irony activated charcoal try-hard mlkshk knausgaard small batch put a bird on it succulents art party messenger bag kitsch. Pok pok cold-pressed hell of, sustainable sriracha 3 wolf moon yuccie coloring book etsy hoodie vice. Chillwave bitters freegan polaroid deep v. Offal ugh iPhone shoreditch street art squid, neutra jean shorts vexillologist lumbersexual echo park pitchfork. Listicle kickstarter literally, waistcoat gochujang master cleanse microdosing brooklyn. Pabst disrupt kickstarter,
-                   </p></div>
+                   <p>{{$vis->section_one}}</p>
+                   </div>
                    <div class="col-md-6">
                      <h4>Mission</h4>
-                     <p>
-                       Dreamcatcher flannel street art bushwick butcher. Irony godard selfies, retro pickled street art roof party sartorial. Bushwick dreamcatcher XOXO pour-over kinfolk unicorn, bitters scenester hot chicken small batch tofu. Enamel pin activated charcoal lo-fi subway tile, raclette synth glossier four dollar toast meditation four loko umami keffiyeh.
-                     </p>
+                     <p>{{$vis->section_two}}</p>                     
                    </div>
                  </div>
                </div>
@@ -104,6 +103,7 @@
          </div>         
        </div>
      </div>
+     @endforeach
      <div class="section" id="prod">
       <div class="col-md-12">
          <div class="container">
@@ -113,58 +113,34 @@
              <div class="col-md-3">      
                <div class="categories">                      
                   <ul class="cat">
-                    <li>
+                    <li>                     
                       <ol class="type">
-                        <li><a href="#" data-filter="*" class="active">All</a></li>
-                        <li><a href="#" data-filter=".transition">Web Design</a></li>
-                        <li><a href="#" data-filter=".metal">Web Development</a></li>
-                      </ol>
+                      <li><a href="#" data-filter="*" class="active">All</a></li>
+                      <!-- <li><a href="#" data-filter=".transition">Web Design</a></li>
+                      <li><a href="#" data-filter=".metal">Web Development</a></li> -->
+                      @foreach($category as $cat)                        
+                        <li><a href="#" data-filter=".{{$cat->id}}">{{$cat->name}}</a></li>
+                      @endforeach
+                      </ol>                      
                     </li>
                   </ul>
                </div>  
              </div>
              <div class="col-md-9">
-               <div class="grid">                                         
-                 <div class="col-md-3 col-xs-6 col-sm-6 items transition" data-category="transition">
+               <div class="grid">
+               @foreach($product as $prod)                                         
+                 <div class="col-md-3 col-xs-6 col-sm-6 items {{$prod->category_id}}" data-category="{{$prod->category_id}}">
+                 <a href="http://{{$prod->link}}" target="_new">
                    <div class="portfolio-item">
                       <div class="hover-bg">
                         <div class="hover-text">
-                          <h4>Project Title</h4>
-                          <p>Web Design</p>
+                          <h5>{{$prod->title}}</h5>                          
                         </div>
-                        <img src="img/01.jpg" class="img-responsive" > </a> </div>
+                        <img src="{{url('product-img/'.$prod->image)}}" class="img-responsive"></div>
                     </div>
                  </div>
-                 <div class="col-md-3 col-xs-6 col-sm-6 items metal" data-category="metal">
-                   <div class="portfolio-item">
-                      <div class="hover-bg">
-                        <div class="hover-text">
-                          <h4>Project Title</h4>
-                          <p>Web Design</p>
-                        </div>
-                        <img src="img/07.jpg" class="img-responsive" > </a> </div>
-                    </div>
-                 </div>
-                 <div class="col-md-3 col-xs-6 col-sm-6 items transition" data-category="transition">
-                   <div class="portfolio-item">
-                      <div class="hover-bg">
-                        <div class="hover-text">
-                          <h4>Project Title</h4>
-                          <p>Web Design</p>
-                        </div>
-                        <img src="img/02.jpg" class="img-responsive" > </a> </div>
-                    </div>
-                 </div>
-                 <div class="col-md-3 col-xs-6 col-sm-6 items metal" data-category="metal"">
-                   <div class="portfolio-item">
-                      <div class="hover-bg">
-                        <div class="hover-text">
-                          <h4>Project Title</h4>
-                          <p>Web Design</p>
-                        </div>
-                        <img src="img/08.jpg" class="img-responsive"> </a> </div>
-                    </div>
-                 </div>
+                 </a> 
+                 @endforeach                 
                </div>                      
              </div>                  
            </div>                
@@ -220,4 +196,3 @@
      </div>            
    </div>
    @endsection
-  
