@@ -101,10 +101,7 @@ class SlideController extends Controller
             ]);
         $update = Slide::findOrFail($id);
         $update->title = $request->title;
-        $update->description = $request->desc;
-        // $update->link = $request->link;
-        // echo "hello";
-        // echo $request->oldimage;           
+        $update->description = $request->desc;                  
         if($request->hasFile('image')){
             Storage::delete('public/slide/'.$request->oldimage);           
             $file = $request->image->store('public/slide/');

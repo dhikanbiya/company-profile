@@ -21,5 +21,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
    Route::get('/home', 'HomeController@index')->name('home');
    Route::resource('slide', 'SlideController');
- Route::resource('about', 'AboutController');
+ 	 Route::resource('about', 'AboutController',['except' => [
+ 	 	'destroy','show'
+ 	 	]]);
 });
