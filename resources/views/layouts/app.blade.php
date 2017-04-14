@@ -61,7 +61,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">products <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">categories</a></li>
+                                    <li><a href="{{route('category.index')}}">categories</a></li>
                                     <li><a href="#">new product</a></li>
                                 </ul>
                             </li>
