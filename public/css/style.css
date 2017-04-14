@@ -49,7 +49,7 @@ hr {
 
 #intro .content h1{
   text-transform: uppercase;
-  font-size: 6em;
+  font-size: 15em;
   padding-top: 150px;
   text-align: center;
   
@@ -183,7 +183,16 @@ a:hover, a:active{
 
 /*carousel*/
 .carousel-caption{
-  top:80px;
+  top:150px;
+}
+.carousel-caption h1{
+  text-transform: uppercase;  
+  color: #1fa777;
+  text-shadow: 0 4px #0e4431;
+}
+
+.carousel-caption p{  
+  color: rgba(255,255,255,0.9);
 }
 
 
@@ -279,6 +288,19 @@ ol.type li a:hover {
     margin-left: -70px;
   }
 
+}
+
+@media(min-width: 768px){
+  .carousel-caption h1{    
+    font-size: 78px;    
+  }
+
+  .carousel-caption p{
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: rgba(255,255,255,0.9);
+  }
 }
 
 

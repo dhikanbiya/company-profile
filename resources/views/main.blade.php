@@ -11,7 +11,7 @@
                  <div class="item">
                      <img src="{{url('slide-img/'.$sl->image)}}" data-color="lightblue" alt="First Image">
                      <div class="carousel-caption">
-                        <h1>{{$sl->title}}</span></h1>
+                        <h1>{{$sl->title}}</h1>
                         <p class="intro-text">{{$sl->description}}</p>
                         <a href="#about" class="btn btn-default page-scroll">More</a>
                      </div>
