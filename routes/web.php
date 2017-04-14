@@ -24,4 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
  	 Route::resource('about', 'AboutController',['except' => [
  	 	'destroy','show'
  	 	]]);
+ 	 Route::resource('vision', 'VismisController',['except' => [
+ 	 	'destroy','show'
+ 	 	]]);
 });

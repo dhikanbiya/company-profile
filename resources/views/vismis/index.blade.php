@@ -3,7 +3,7 @@
 @section('content')
 <div class="container" id="content">	
 		<div class="col-md-12">
-		<h1>About section</h1> 
+		<h1>Vision and Mission section</h1> 
 		<p class="text-center"></p>
 		@if (session('success'))
 		    <p class="alert alert-success">
@@ -11,26 +11,28 @@
 		    </p>
 		@endif   
 	</div>	
-	@if($about->isEmpty())
+
+		@if($vision->isEmpty())
+			<div class="col-md-12">
+				<p>no data</p>
+				<p><a href="{{route('vision.create')}}" class="btn btn-xs btn-success">create</a></p>
+			</div>		
+		@endif
+
+		@foreach($vision as $item)
 		<div class="col-md-12">
-			<p>no data</p>
-			<p><a href="{{route('about.create')}}" class="btn btn-xs btn-success">create</a></p>
-		</div>		
-	@endif
-		@foreach($about as $item)
-		<div class="col-md-12">
-			<a href="{{route('about.edit',$item->id)}}" class="pull-right btn btn-xs btn-info">edit</a>
+			<a href="{{route('vision.edit',$item->id)}}" class="pull-right btn btn-xs btn-info">edit</a>
 		</div>
 			<div class="col-md-12">
 				<div class="row">
 						<div class="col-md-4">
-							<h4>Who we are</h4>
+							<h4>Vision</h4>
 							<p>
 								{{$item->section_one}}
 							</p>
 						</div>
 						<div class="col-md-4">
-							<h4>What we do</h4>
+							<h4>Mission</h4>
 							<p>
 								{{$item->section_two}}
 							</p>
@@ -43,7 +45,6 @@
 			</div>
 		@endforeach
 	
-		
 	
 			    
 </div>

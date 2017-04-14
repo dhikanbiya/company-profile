@@ -57,7 +57,7 @@
                             <li><a href="{{route('home')}}">home</a></li>
                             <li><a href="{{route('slide.index')}}">slides</a></li>
                             <li><a href="{{route('about.index')}}">about</a></li>
-                            <li><a href="#">vision & mission</a></li>
+                            <li><a href="{{route('vision.index')}}">vision & mission</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">products <span class="caret"></span></a>
                                 <ul class="dropdown-menu">

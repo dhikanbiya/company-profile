@@ -1,14 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Post;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\File;
-use Auth;
 
-
-class AboutController extends Controller
+class VismisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $about = Post::where('page',1)->first()->get();
-        return view('about.index',compact('about'));
+    {
+        $vision = Post::where('page',2)->get();
+        return view('vismis.index',compact('vision'));
     }
 
     /**
@@ -28,13 +28,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-       $about = Post::where('page',1)->first();
-       if($about){
-        return view('about.index');
-       }else{
-        return redirect()->route('about.index'); 
-       } 
-       
+        return view('vismis.create');
     }
 
     /**
@@ -55,13 +49,13 @@ class AboutController extends Controller
         $about->section_one = $request->section_one;
         $about->section_two = $request->section_two;
         $about->user_id = Auth::user()->id;
-        $about->page = 1;
+        $about->page = 2;
         if($request->hasFile('image')){
             $file = $request->image->store('public/img/');
             $about->image = $request->image->hashName();
             $about->save();
         }
-        return redirect()->route('about.index');
+        return redirect()->route('vision.index');
     }
 
     /**
@@ -84,7 +78,7 @@ class AboutController extends Controller
     public function edit($id)
     {
         $edit = Post::findOrFail($id);
-        return view('about.edit',compact('edit'));
+        return view('vismis.edit',compact('edit'));
     }
 
     /**
@@ -111,7 +105,7 @@ class AboutController extends Controller
             $update->image = $request->image->hashName();                  
         }        
         $update->save(); 
-        return redirect()->route('about.index')->with('success','about section updated');
+        return redirect()->route('vision.index')->with('success','vision mission updated');
     }
 
     /**
