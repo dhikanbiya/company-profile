@@ -1,0 +1,21 @@
+#content{
+	background: #fff;
+	min-height: 500px;
+	padding: 15px;
+	border-radius: 5px;
+}
+#content h1{
+	padding-top: 5px;
+	text-align: center;
+}
+
+#content img{
+	height: 300px;
+	width: auto;
+}
+
+.navbar-brand>img {
+  padding: 7px 14px;
+  width: 60px;
+  height: auto;
+}
