@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Manage;
 use Illuminate\Http\Request;
+use Hash;
 
 class ProfileController extends Controller
 {
@@ -76,7 +77,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $this->validate($request,[
+        'newpass' => 'required|min:5',
+        'passconf' => 'required|min:5|same:newpass',        
+        ]);
+
+       $update = Manage::findOrFail($id);
+       $update->password = bcrypt($request->newpass);
+       $update->save();
+
+       return redirect()->route('home')->with('success','password updated');
+
     }
 
     /**
