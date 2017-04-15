@@ -72,6 +72,14 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{route('profile.edit',Auth::user()->id)}}">change password</a>
+                                    </li>
+                                    <li>
+                                    @if(Auth::user()->level == 1)
+                                      <a href="{{route('manage.index')}}">manage user</a>
+                                    @endif
+                                    </li>
+                                    <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

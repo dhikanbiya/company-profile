@@ -31,3 +31,9 @@ Route::group(['middleware' => ['auth','active']], function () {
  	 Route::resource('category', 'CategoryController',['except'=>['show']]);
  	 Route::resource('product', 'ProductController');
 });
+
+
+ Route::resource('manage','ManageController',['only'=>['update','destroy','index']],['middleware'=>['auth','checkadmin','active']]);
+
+ Route::resource('profile','ProfileController',['only'=>['edit','update']],['middleware'=>['auth']]);
+
