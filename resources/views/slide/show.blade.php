@@ -19,7 +19,7 @@
 	</div>
 	<div class="com-md-4">
 		<p><b>image</b></p>		
-		<img src="{{url('slide-img/'.$show->image)}}" class="img-responsive">
+		<img src="{{url('slides/'.$show->image)}}" class="img-responsive">
 	</div>
 		    
 </div>

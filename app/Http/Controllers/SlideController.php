@@ -52,7 +52,7 @@ class SlideController extends Controller
         $slide->link = $request->link;
         $slide->user_id = Auth::user()->id;
         if($request->hasFile('image')){
-            $file = $request->image->store('public/slide/');
+            $file = $request->image->store('slides/');
             $slide->image = $request->image->hashName();
             $slide->save();
         }
@@ -103,8 +103,8 @@ class SlideController extends Controller
         $update->title = $request->title;
         $update->description = $request->desc;                  
         if($request->hasFile('image')){
-            Storage::delete('public/slide/'.$request->oldimage);           
-            $file = $request->image->store('public/slide/');
+            Storage::delete('slides/'.$request->oldimage);           
+            $file = $request->image->store('slides/');
             $update->image = $request->image->hashName(); 
             // echo $request->oldimage;           
         }        
@@ -122,7 +122,7 @@ class SlideController extends Controller
     {
         $slide = Slide::findOrFail($id);
         if($slide->image){
-            Storage::delete('public/slide/'.$slide->image);
+            Storage::delete('slides/'.$slide->image);
         }
         $slide->delete();
         return redirect()->route('slide.index')->with('success','delete success');

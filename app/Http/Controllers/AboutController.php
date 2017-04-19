@@ -32,7 +32,7 @@ class AboutController extends Controller
        if($about){
         return view('about.index');
        }else{
-        return redirect()->route('about.index'); 
+        return view('about.create'); 
        } 
        
     }
@@ -57,7 +57,7 @@ class AboutController extends Controller
         $about->user_id = Auth::user()->id;
         $about->page = 1;
         if($request->hasFile('image')){
-            $file = $request->image->store('public/img/');
+            $file = $request->image->store('images/');
             $about->image = $request->image->hashName();
             $about->save();
         }
@@ -106,8 +106,8 @@ class AboutController extends Controller
         $update->section_one = $request->section_one;
         $update->section_two = $request->section_two;
         if($request->hasFile('image')){
-            Storage::delete('public/img/'.$request->oldimage);           
-            $file = $request->image->store('public/img/');
+            Storage::delete('images/'.$request->oldimage);           
+            $file = $request->image->store('images/');
             $update->image = $request->image->hashName();                  
         }        
         $update->save(); 

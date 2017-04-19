@@ -28,7 +28,12 @@ class VismisController extends Controller
      */
     public function create()
     {
-        return view('vismis.create');
+         $about = Post::where('page',2)->first();
+       if($about){
+        return view('vismis.index');
+       }else{
+        return view('vismis.create'); 
+       } 
     }
 
     /**
@@ -51,7 +56,7 @@ class VismisController extends Controller
         $about->user_id = Auth::user()->id;
         $about->page = 2;
         if($request->hasFile('image')){
-            $file = $request->image->store('public/img/');
+            $file = $request->image->store('images/');
             $about->image = $request->image->hashName();
             $about->save();
         }
@@ -100,8 +105,8 @@ class VismisController extends Controller
         $update->section_one = $request->section_one;
         $update->section_two = $request->section_two;
         if($request->hasFile('image')){
-            Storage::delete('public/img/'.$request->oldimage);           
-            $file = $request->image->store('public/img/');
+            Storage::delete('images/'.$request->oldimage);           
+            $file = $request->image->store('images/');
             $update->image = $request->image->hashName();                  
         }        
         $update->save(); 

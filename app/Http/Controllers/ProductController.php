@@ -56,7 +56,7 @@ class ProductController extends Controller
         $product->category_id = $request->cat;
         $product->user_id = Auth::user()->id;
         if($request->hasFile('image')){
-            $file = $request->image->store('public/product/');
+            $file = $request->image->store('products/');
             $product->image = $request->image->hashName();
             $product->save();
         }
@@ -109,8 +109,8 @@ class ProductController extends Controller
         $update->link = $request->link;                  
         $update->category_id = $request->cat;                  
         if($request->hasFile('image')){
-            Storage::delete('public/product/'.$request->oldimage);           
-            $file = $request->image->store('public/product/');
+            Storage::delete('products/'.$request->oldimage);           
+            $file = $request->image->store('products/');
             $update->image = $request->image->hashName(); 
             // echo $request->oldimage;           
         }        

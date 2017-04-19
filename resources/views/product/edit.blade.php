@@ -43,7 +43,7 @@
 			    <label for="image" class="col-md-3 control-label">Image preview</label>
 			    <div class="col-md-9">
 			    	<input type="hidden" name="oldimage" value={{$row->image}}>
-			    	<img src="{{url('product-img/'.$row->image)}}" class="img-responsive">
+			    	<img src="{{url('products/'.$row->image)}}" class="img-responsive">
 			    </div>
 			  </div>
 			  <div class="form-group">

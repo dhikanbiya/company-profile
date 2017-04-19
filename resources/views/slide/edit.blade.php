@@ -48,7 +48,7 @@
 			<div class="col-md-5">
 			<div class="form-group">			  
 			  <div class="col-md-9">
-			  	<img src="{{url('slide-img/'.$row->image)}}">				  	
+			  	<img src="{{url('slides/'.$row->image)}}">				  	
 			  </div>
 			</div>
 				@if (count($errors) > 0)

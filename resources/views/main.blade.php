@@ -9,11 +9,11 @@
                <div class="carousel-inner" role="listbox">
                @foreach($slide as $sl)
                  <div class="item">
-                     <img src="{{url('slide-img/'.$sl->image)}}" data-color="lightblue" alt="First Image">
+                     <img src="{{asset('slides/'.$sl->image)}}" data-color="lightblue" alt="First Image">
                      <div class="carousel-caption">
                         <h1>{{$sl->title}}</h1>
                         <p class="intro-text">{{$sl->description}}</p>
-                        <a href="#about" class="btn btn-default page-scroll">More</a>
+                        <a href="{{$sl->link}}" class="btn btn-default page-scroll">More</a>
                      </div>
                  </div>
                  @endforeach
@@ -139,7 +139,7 @@
                         <div class="hover-text">
                           <h5>{{$prod->title}}</h5>                          
                         </div>
-                        <img src="{{url('product-img/'.$prod->image)}}" class="img-responsive"></div>
+                        <img src="{{url('products/'.$prod->image)}}" class="img-responsive"></div>
                     </div>
                  </div>
                  </a> 
