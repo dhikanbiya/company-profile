@@ -53,7 +53,7 @@
             <li data-menuanchor="about"><a href="#about">About</a></li>
             <li data-menuanchor="vision"><a href="#vision">Vision & Mission</a></li>
             <li data-menuanchor="products"><a href="#products">Products</a></li>
-            <li data-menuanchor="contanct"><a href="#contact">Contact</a></li>            
+            <li data-menuanchor="contact"><a href="#contact">Contact</a></li>            
           </ul>
           
         </div><!--/.nav-collapse -->

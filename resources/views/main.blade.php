@@ -47,14 +47,14 @@
              </div>
            <!-- end -->
      
-   </div>
-   @foreach($about as $ab)
+   </div>  
    <div class="section" id="ab">
     <div class="col-md-12">
       <div class="container">
         <div class="content">
          <h1>About Us</h1>
          <hr>
+          @foreach($about as $ab)
          <div class="col-md-12">
            <div class="row">
              <div class="col-md-4">             
@@ -70,17 +70,19 @@
              </div>
            </div>
          </div>
+         @endforeach
         </div>             
       </div>           
     </div>
    </div>
-   @endforeach
-   @foreach($vision as $vis)
+   
+   
    <div class="section" id="vimis">
      <div class="container">
        <div class="content">
            <div class="col-md-12">
            <h1>Vision and Misson</h1>
+           @foreach($vision as $vis)
            <hr>
              <div class="row">
                <div class="col-md-4">
@@ -99,11 +101,12 @@
                  </div>
                </div>
              </div>
+             @endforeach
            </div>  
          </div>         
        </div>
      </div>
-     @endforeach
+     
      <div class="section" id="prod">
       <div class="col-md-12">
          <div class="container">
