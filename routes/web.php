@@ -14,7 +14,7 @@
 // 
 
 Route::get('/', 'FrontController@index');
-
+Route::get('/landing', 'SoonController@index');
 
 Auth::routes();
 
