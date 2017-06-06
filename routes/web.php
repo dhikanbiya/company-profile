@@ -22,6 +22,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth','active']], function () {
    Route::get('/home', 'HomeController@index')->name('home');
    Route::resource('slide', 'SlideController');
+    Route::resource('manage','ManageController',['only'=>['update','destroy','index']],['middleware'=>['checkadmin']]);
  	 Route::resource('about', 'AboutController',['except' => [
  	 	'destroy','show'
  	 	]]);
@@ -33,7 +34,7 @@ Route::group(['middleware' => ['auth','active']], function () {
 });
 
 
- Route::resource('manage','ManageController',['only'=>['update','destroy','index']],['middleware'=>['auth','checkadmin','active']]);
+
 
  Route::resource('profile','ProfileController',['only'=>['edit','update']],['middleware'=>['auth']]);
 
